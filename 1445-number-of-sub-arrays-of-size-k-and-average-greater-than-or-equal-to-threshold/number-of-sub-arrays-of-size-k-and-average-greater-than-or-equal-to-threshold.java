@@ -12,9 +12,7 @@ class Solution {
         }
 
         for(int idx=0; (idx+k-1)<arr.length; idx++){
-            int endIdx = idx + k - 1;
-            int currSum = map.get(endIdx) - map.getOrDefault(idx-1, 0);
-            float avg = currSum/k;
+            float avg = (map.get(idx + k - 1) - map.getOrDefault(idx-1, 0))/k;
             if(avg >= threshold) {
                 op++;
             }
