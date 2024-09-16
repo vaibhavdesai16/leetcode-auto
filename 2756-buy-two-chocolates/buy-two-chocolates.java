@@ -14,7 +14,8 @@ class Solution {
                 minPrices[0] = n;
             }
         }
+        int x = money - (minPrices[0] + minPrices[1]);
 
-        return money - (minPrices[0] + minPrices[1]) < 0 ? money : money - (minPrices[0] + minPrices[1]);
+        return x < 0 ? money : x;
     }
 }
