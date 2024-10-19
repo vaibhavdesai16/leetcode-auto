@@ -2,8 +2,7 @@ class Solution {
     public int maxTurbulenceSize(int[] arr) {
 
         int length = 1;
-        int[] dp = new int[arr.length];
-        dp[0] = 1;
+        int curr = 1;
         char lastOp = 'X';
 
         for(int i=1; i < arr.length; i++){
@@ -15,17 +14,17 @@ class Solution {
             }
 
             if(lastOp != currOp && currOp != 'E'){
-                dp[i] = dp[i-1] + 1;
+                curr++;
             }
             else if(lastOp == currOp && currOp != 'E'){
-                dp[i] = 2;
+                curr = 2;
             }
             else{
-                dp[i] = 1;
+                curr = 1;
             }
             lastOp = currOp;
 
-            length = Math.max(length , dp[i]);
+            length = Math.max(length , curr);
         }
 
         return length;
