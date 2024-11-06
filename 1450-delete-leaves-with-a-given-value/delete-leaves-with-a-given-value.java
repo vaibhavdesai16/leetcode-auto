@@ -15,8 +15,7 @@
  */
 class Solution {
     public TreeNode removeLeafNodes(TreeNode root, int target) {
-        TreeNode r = root;
-        dfs(r, target);
+        dfs(root, target);
         if(root.left == null && root.right == null && root.val == target){
             return null;
         }
@@ -31,13 +30,10 @@ class Solution {
             return true;
         }
 
-        boolean hasLeafToLeft = dfs(node.left, target);
-        boolean hasLeafToRight = dfs(node.right, target);
-
-        if(hasLeafToLeft && node.left.val == target){
+        if(dfs(node.left, target) && node.left.val == target){
             node.left = null;
         }
-        if(hasLeafToRight && node.right.val == target){
+        if(dfs(node.right, target) && node.right.val == target){
             node.right = null;
         }
 
