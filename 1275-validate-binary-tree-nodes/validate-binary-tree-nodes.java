@@ -26,8 +26,6 @@ class Solution {
             }
         }
 
-        System.out.println("root " + root );
-
         dfs(root);
 
         if(visited.size() != n ){
