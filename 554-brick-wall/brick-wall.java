@@ -22,7 +22,6 @@ class Solution {
             int frequncy = frq.get(key);
             max = Math.max(max, frequncy);
         }
-        System.out.println(max);
         return wall.size() - max;
     }
 }
