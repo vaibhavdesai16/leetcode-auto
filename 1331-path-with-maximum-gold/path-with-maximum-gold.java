@@ -6,6 +6,7 @@ class Solution {
         this.grid = grid;
         this.ROW_MAX = grid.length;
         this.COL_MAX = grid[0].length;
+        HashSet<String> visited = new HashSet<String>();
 
         int ans = 0;
 
@@ -13,7 +14,7 @@ class Solution {
             for(int j=0; j<COL_MAX; j++){
                 if(grid[i][j] != 0){
                     //String loc = i + " " + j;
-                    ans = Math.max(dfs(i,j, new HashSet<String>()), ans);
+                    ans = Math.max(dfs(i,j, visited), ans);
                     //System.out.println(" loc " + loc + " ans " + ans);
                 }
             }
