@@ -15,12 +15,18 @@ class Solution {
         recur(head);
         int idx = 0;
         while(head != null){
-            if(head.val != arr.get(idx)){
-                return false;
-            }
-            else{
-                head = head.next;
-                idx++;
+            if(idx <= arr.size()/2){
+
+                if(head.val != arr.get(idx)){
+                    return false;
+                }
+                else{
+                    head = head.next;
+                    idx++;
+                }
+
+            }else{
+                return true;
             }
         }
 
