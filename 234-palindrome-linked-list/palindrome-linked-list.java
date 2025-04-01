@@ -9,37 +9,23 @@
  * }
  */
 class Solution {
-    ArrayList<Integer> arr = new ArrayList<>();
-
+    ListNode first = null;
     public boolean isPalindrome(ListNode head) {
-        recur(head);
-        int idx = 0;
-        while(head != null){
-            if(idx <= arr.size()/2){
-
-                if(head.val != arr.get(idx)){
-                    return false;
-                }
-                else{
-                    head = head.next;
-                    idx++;
-                }
-
-            }else{
-                return true;
-            }
-        }
-
-        return true;
+        first = head;
+        boolean r = recur(head);
+        return r;
     }
 
-    public void recur(ListNode node){
+    public boolean recur(ListNode node){
 
         if(node == null){
-            return;
+            return true;
         }
 
-        recur(node.next);
-        arr.add(node.val);
+        boolean r = recur(node.next);
+        //System.out.println("node " + node.val + " first " + first.val);
+        r = r && (first.val == node.val);
+        first = first.next;
+        return r;
     }
 }
