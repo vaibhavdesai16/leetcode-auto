@@ -20,14 +20,13 @@ class Solution {
             }
         }
 
-        int[] r = new int[set.size()];
-        int idx = 0;
-        for(int n : set){
-            r[idx] = n;
-            idx++;
+        List<Integer> res = new ArrayList<>(set);
+        Collections.sort(res);
+        int[] result = new int[res.size()];
+        for (int i = 0; i < res.size(); ++i) {
+            result[i] = res.get(i);
         }
+        return result;
 
-        Arrays.sort(r);
-        return r;
     }
 }
